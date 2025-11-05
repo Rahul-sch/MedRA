@@ -9,7 +9,7 @@ const steps = [
     number: '01',
     icon: MapPin,
     title: 'Position',
-    description: 'MedRa's mobile base autonomously drives to the optimal location in your lab. No manual positioning required—it knows where to go.',
+    description: "MedRa's mobile base autonomously drives to the optimal location in your lab. No manual positioning required—it knows where to go.",
     color: 'text-accent-500',
     bgColor: 'bg-accent-100',
   },
