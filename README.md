@@ -18,12 +18,13 @@ npm install
 yarn install
 ```
 
-2. Install the additional Tailwind CSS animate plugin:
-```bash
-npm install tailwindcss-animate
-# or
-yarn add tailwindcss-animate
-```
+2. Set up Supabase backend (for form submissions):
+   - Follow the complete guide in **[SUPABASE_SETUP.md](./SUPABASE_SETUP.md)**
+   - Quick version:
+     - Create a Supabase project at [supabase.com](https://supabase.com)
+     - Run the SQL to create the `preorders` table (see SUPABASE_SETUP.md)
+     - Copy `.env.local.example` to `.env.local`
+     - Add your Supabase URL and anon key
 
 3. Run the development server:
 ```bash
@@ -87,7 +88,7 @@ To change the accent color, update the `accent` values in `tailwind.config.ts`.
    - Adjust grid layout (currently 4 columns on large screens)
 
 3. **Pre-order Form** (`components/PreorderForm.tsx`):
-   - Connect form submission to your backend/email service
+   - Already connected to Supabase (see SUPABASE_SETUP.md)
    - Update form fields as needed
    - Modify benefits list
 
@@ -113,6 +114,8 @@ Place product images in the `public/images/` directory and update references:
 - ✅ TypeScript for type safety
 - ✅ Tailwind CSS for rapid styling
 - ✅ Shadcn UI components
+- ✅ **Supabase integration** - Form data stored in database
+- ✅ Error handling and success states
 
 ## 🚢 Deployment
 
@@ -142,26 +145,29 @@ This is a standard Next.js app and can be deployed to:
 
 ## 📝 Form Integration
 
-The pre-order form currently logs to console. To integrate with a backend:
+The pre-order form is **already integrated with Supabase**! 🎉
 
-1. **Option A - Email Service (e.g., SendGrid, Mailgun)**:
-   ```typescript
-   // In components/PreorderForm.tsx
-   const handleSubmit = async (e: React.FormEvent) => {
-     e.preventDefault()
-     const response = await fetch('/api/preorder', {
-       method: 'POST',
-       body: JSON.stringify(formData),
-     })
-   }
-   ```
+Every form submission is automatically stored in your Supabase database. See **[SUPABASE_SETUP.md](./SUPABASE_SETUP.md)** for complete setup instructions.
 
-2. **Option B - Form Service (e.g., Formspree, Basin)**:
-   - Update form action to point to service endpoint
-   - Add hidden fields as needed
+### What's Included:
 
-3. **Option C - CRM Integration (e.g., HubSpot, Salesforce)**:
-   - Use their API to create leads/contacts
+- ✅ Automatic data storage in Supabase
+- ✅ Form validation and error handling
+- ✅ Success/error states with user feedback
+- ✅ Secure Row Level Security (RLS) policies
+- ✅ View all submissions in Supabase dashboard
+
+### Additional Integrations (Optional):
+
+1. **Email Notifications**:
+   - Set up Supabase webhooks to trigger emails
+   - Use Zapier/Make.com for notifications
+   - See SUPABASE_SETUP.md for details
+
+2. **CRM Integration**:
+   - Export data from Supabase to HubSpot, Salesforce, etc.
+   - Use Zapier for automatic syncing
+   - CSV export available in Supabase dashboard
 
 ## 🔍 SEO Optimization
 

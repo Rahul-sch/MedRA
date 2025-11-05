@@ -5,7 +5,8 @@ import { Button } from './ui/button'
 import { Input } from './ui/input'
 import { Label } from './ui/label'
 import { Card, CardContent } from './ui/card'
-import { CheckCircle, Calendar, DollarSign, TrendingDown, Package } from 'lucide-react'
+import { CheckCircle, Calendar, DollarSign, TrendingDown, Package, AlertCircle } from 'lucide-react'
+import { supabase } from '@/lib/supabase'
 
 const benefits = [
   {
@@ -35,6 +36,7 @@ export default function PreorderForm() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [error, setError] = useState<string | null>(null)
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null)
 
@@ -62,19 +64,41 @@ export default function PreorderForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setError(null)
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500))
+    try {
+      // Insert data into Supabase
+      const { data, error: supabaseError } = await supabase
+        .from('preorders')
+        .insert([
+          {
+            name: formData.name,
+            email: formData.email,
+            institution: formData.institution || null,
+            role: formData.role || null,
+            created_at: new Date().toISOString(),
+          },
+        ])
+        .select()
 
-    console.log('Pre-order form submitted:', formData)
-    setIsSubmitted(true)
-    setIsSubmitting(false)
+      if (supabaseError) {
+        throw supabaseError
+      }
 
-    // Reset form after 5 seconds
-    setTimeout(() => {
-      setIsSubmitted(false)
-      setFormData({ name: '', email: '', institution: '', role: '' })
-    }, 5000)
+      console.log('Pre-order successfully saved:', data)
+      setIsSubmitted(true)
+
+      // Reset form after 5 seconds
+      setTimeout(() => {
+        setIsSubmitted(false)
+        setFormData({ name: '', email: '', institution: '', role: '' })
+      }, 5000)
+    } catch (err: any) {
+      console.error('Error submitting pre-order:', err)
+      setError(err.message || 'Failed to submit. Please try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -222,6 +246,21 @@ export default function PreorderForm() {
                           disabled={isSubmitting}
                         />
                       </div>
+
+                      {/* Error Message */}
+                      {error && (
+                        <div className="bg-destructive/10 border border-destructive/20 rounded-lg p-4 flex items-start gap-3">
+                          <AlertCircle className="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" />
+                          <div>
+                            <p className="text-sm font-medium text-destructive mb-1">
+                              Submission Failed
+                            </p>
+                            <p className="text-sm text-destructive/80">
+                              {error}
+                            </p>
+                          </div>
+                        </div>
+                      )}
 
                       <div className="pt-4">
                         <Button
