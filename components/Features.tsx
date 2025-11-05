@@ -7,59 +7,45 @@ import { Shield, Zap, Users, Cpu, HeartPulse, Settings, CheckCircle, Clock } fro
 const features = [
   {
     icon: Shield,
-    title: 'Maximum Radiation Protection',
-    description: 'Reduce scatter radiation exposure by up to 97% with our advanced lead-equivalent shielding system, protecting operators and staff from harmful ionizing radiation.',
+    title: 'Mobile Robotic Base',
+    description: 'Autonomous navigation system positions the shield exactly where needed. The compact base moves smoothly through your lab without interfering with workflow or equipment.',
     color: 'text-success',
     bgColor: 'bg-success-light',
   },
   {
-    icon: Zap,
-    title: 'Hands-Free Automated Operation',
-    description: 'Robotic positioning system adjusts seamlessly to operator movements and procedure requirements. Focus on patient care, not manual shield adjustments.',
+    icon: Cpu,
+    title: 'Dual Articulated Arms',
+    description: 'Two independent robotic arms provide full range of motion and precise positioning. Adjusts shield height, angle, and distance to maintain optimal coverage as you move.',
     color: 'text-accent-500',
     bgColor: 'bg-accent-100',
   },
   {
-    icon: Users,
-    title: 'Full-Body Staff Protection',
-    description: 'Comprehensive coverage for physicians, nurses, and technologists. Ergonomic design reduces physical strain and fatigue during lengthy procedures.',
-    color: 'text-warning',
-    bgColor: 'bg-warning-light',
-  },
-  {
-    icon: Cpu,
-    title: 'Smart AI-Powered Tracking',
-    description: 'Intelligent positioning algorithms predict operator movement patterns and automatically adjust shield placement in real-time for optimal protection.',
+    icon: Shield,
+    title: 'Transparent Lead-Glass Shield',
+    description: 'Medical-grade lead-glass composite blocks scatter radiation while maintaining complete visual clarity. See your patient and equipment clearly without compromising protection.',
     color: 'text-accent-600',
     bgColor: 'bg-accent-100',
   },
   {
-    icon: HeartPulse,
-    title: 'Preserve Long-Term Health',
-    description: 'Reduce lifetime cumulative radiation dose for medical staff. Protect against radiation-induced cataracts, thyroid disease, and malignancies.',
-    color: 'text-success-dark',
-    bgColor: 'bg-success-light',
+    icon: Zap,
+    title: 'Real-Time Position Tracking',
+    description: 'Advanced sensors continuously monitor operator position and automatically adjust shield alignment. Millisecond response times ensure constant protection throughout procedures.',
+    color: 'text-warning',
+    bgColor: 'bg-warning-light',
   },
   {
     icon: Settings,
     title: 'Seamless Lab Integration',
-    description: 'Compact footprint fits existing cath labs and fluoroscopy suites. Easy installation with minimal downtime. Compatible with all major imaging systems.',
+    description: 'Compatible with existing C-arm systems, imaging equipment, and lab layouts. Install in hours, not days. Works with all major fluoroscopy manufacturers.',
     color: 'text-text-secondary',
     bgColor: 'bg-background-tertiary',
   },
   {
     icon: CheckCircle,
-    title: 'Regulatory Compliant',
-    description: 'Designed to meet FDA 510(k) and IEC 60601 medical device standards. Built with hospital-grade materials and comprehensive safety certifications.',
-    color: 'text-accent-700',
-    bgColor: 'bg-accent-50',
-  },
-  {
-    icon: Clock,
-    title: 'Rapid Deployment',
-    description: 'Quick 5-minute setup between procedures. Minimal training required. Full technical support and on-site installation assistance included with every unit.',
-    color: 'text-warning-dark',
-    bgColor: 'bg-warning-light',
+    title: 'Medical-Grade Construction',
+    description: 'Built to FDA Class I medical device standards with hospital-grade materials. Designed for the demands of high-volume interventional labs.',
+    color: 'text-success-dark',
+    bgColor: 'bg-success-light',
   },
 ]
 
@@ -98,16 +84,16 @@ export default function Features() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-display-sm lg:text-display-md text-text-primary mb-6">
-            Why MedRa is the Future of{' '}
-            <span className="text-accent-500">Radiation Safety</span>
+            Meet MedRa —{' '}
+            <span className="text-accent-500">Robotic Lead Shielding</span>
           </h2>
           <p className="text-lg lg:text-xl text-text-secondary leading-relaxed">
-            Purpose-built for interventional radiology and fluoroscopy labs. Every feature designed to protect your team and enhance procedural efficiency.
+            A mobile robotic base with dual articulated arms that automatically position a transparent lead-glass shield. Full-body radiation protection without the weight.
           </p>
         </div>
 
         {/* Features Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {features.map((feature, index) => {
             const Icon = feature.icon
             return (

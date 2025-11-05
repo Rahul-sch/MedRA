@@ -6,10 +6,10 @@ import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const navItems = [
-  { label: 'Features', href: '#features' },
-  { label: 'Benefits', href: '#social-proof' },
+  { label: 'The Problem', href: '#problem' },
+  { label: 'The Solution', href: '#features' },
+  { label: 'How It Works', href: '#how-it-works' },
   { label: 'FAQ', href: '#faq' },
-  { label: 'Contact', href: '#footer' },
 ]
 
 export default function Navbar() {

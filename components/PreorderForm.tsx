@@ -15,7 +15,7 @@ const benefits = [
   },
   {
     icon: Calendar,
-    text: "Priority shipping - Q4 2026",
+    text: "Priority delivery - Early 2026 deployment",
   },
   {
     icon: Package,
@@ -23,7 +23,7 @@ const benefits = [
   },
   {
     icon: DollarSign,
-    text: "Flexible payment terms available",
+    text: "Pilot program eligibility",
   },
 ]
 
@@ -125,11 +125,11 @@ export default function PreorderForm() {
               </span>
             </div>
             <h2 className="text-display-sm lg:text-display-md text-text-primary mb-6">
-              Secure Your{' '}
+              Lock In Your{' '}
               <span className="text-accent-500">Early Access</span>
             </h2>
             <p className="text-lg lg:text-xl text-text-secondary leading-relaxed max-w-3xl mx-auto">
-              Join the waitlist to lock in special launch pricing and priority delivery. First 50 units ship Q4 2026.
+              Be among the first hospitals to deploy MedRa. Pre-orders secure early production units and pilot program eligibility.
             </p>
           </div>
 

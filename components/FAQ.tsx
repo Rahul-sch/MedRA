@@ -6,116 +6,72 @@ import { Card } from './ui/card'
 
 const faqs = [
   {
-    title: 'When will MedRa units be available for delivery?',
+    title: 'When will MedRa be available?',
     content: (
       <>
         <p>
-          MedRa is currently in final development and regulatory review. We anticipate shipping the first production units in <strong>Q4 2026</strong>. Pre-order customers will receive priority placement in the fulfillment queue and will be notified 90 days prior to shipping with final delivery schedules.
-        </p>
-      </>
-    ),
-  },
-  {
-    title: 'What regulatory clearances does MedRa have?',
-    content: (
-      <>
-        <p>
-          MedRa is being designed to meet FDA 510(k) medical device requirements and IEC 60601 electrical safety standards for medical equipment. Our submission is currently under review. All units will ship with appropriate regulatory clearances for use in clinical settings. We are also pursuing CE marking for international markets.
-        </p>
-      </>
-    ),
-  },
-  {
-    title: 'What is the installation footprint and space requirements?',
-    content: (
-      <>
-        <p>
-          MedRa has a compact footprint of approximately <strong>4 feet × 4 feet (120cm × 120cm)</strong> at the base, with a vertical reach of up to 7 feet. The system is designed to integrate seamlessly into existing cath labs and interventional suites without requiring major infrastructure modifications.
+          MedRa is currently in final development and FDA clearance review. We anticipate shipping the first production units in <strong>early 2026</strong>. Pre-order customers will receive priority placement in the fulfillment queue and will be notified 90 days prior to shipping with final delivery schedules.
         </p>
         <p className="mt-3">
-          Standard ceiling height of 9-10 feet is recommended. Our installation team will conduct a pre-installation site survey to ensure compatibility with your facility layout.
+          Our pilot partnership with Providence Hospital begins in Q2 2025, providing real-world validation before broader deployment.
         </p>
       </>
     ),
   },
   {
-    title: 'Is training included? How long does it take to learn?',
+    title: 'Does it integrate with existing imaging systems?',
     content: (
       <>
         <p>
-          Yes! Every MedRa purchase includes <strong>comprehensive on-site training</strong> for your staff. Training typically requires 2-4 hours and covers:
+          Yes! MedRa works seamlessly with all major C-arm fluoroscopy systems and cath lab configurations from manufacturers including Siemens, Philips, GE Healthcare, and Canon Medical.
         </p>
-        <ul className="list-disc ml-6 mt-3 space-y-2">
-          <li>System operation and positioning controls</li>
-          <li>Safety protocols and emergency procedures</li>
-          <li>Maintenance and daily care</li>
-          <li>Troubleshooting common issues</li>
-        </ul>
         <p className="mt-3">
-          Most operators become proficient within 1-2 procedures. We also provide online video tutorials and 24/7 technical support.
+          The system operates independently and doesn't require integration with your imaging equipment. It simply provides radiation shielding—your existing workflows, software, and imaging protocols remain unchanged.
         </p>
       </>
     ),
   },
   {
-    title: 'How much radiation protection does MedRa provide?',
+    title: 'What training is required?',
+    content: (
+      <>
+        <p>
+          Every MedRa purchase includes <strong>comprehensive on-site training</strong> for your staff. Training typically requires 2-4 hours and covers system operation, safety protocols, and basic maintenance.
+        </p>
+        <p className="mt-3">
+          Most operators become proficient within 1-2 procedures. The system is designed to be intuitive—it automatically positions itself and tracks operator movement without manual adjustments.
+        </p>
+        <p className="mt-3">
+          We also provide online video tutorials, 24/7 technical support, and periodic refresher training as needed.
+        </p>
+      </>
+    ),
+  },
+  {
+    title: 'How much shielding does it provide?',
     content: (
       <>
         <p>
           Clinical studies on robotic radiation protection systems show reduction in scatter radiation exposure of <strong>up to 97%</strong> to the operator's head, neck, and torso compared to traditional lead apron protection alone.
         </p>
         <p className="mt-3">
-          MedRa uses lead-equivalent shielding materials (0.5mm Pb equivalent) and intelligent positioning to maintain optimal barrier protection throughout the procedure, significantly reducing lifetime cumulative radiation dose for interventional staff.
+          MedRa uses medical-grade lead-glass composite shielding (0.5mm Pb equivalent) with intelligent real-time positioning to maintain optimal barrier protection throughout the procedure—without the weight of wearable lead.
         </p>
       </>
     ),
   },
   {
-    title: 'What payment options are available?',
+    title: 'Can it move autonomously between rooms?',
     content: (
       <>
         <p>
-          We offer flexible payment options for healthcare institutions:
-        </p>
-        <ul className="list-disc ml-6 mt-3 space-y-2">
-          <li>Standard purchase with net-30 payment terms</li>
-          <li>Multi-year equipment financing (24, 36, 48 month terms)</li>
-          <li>Lease-to-own programs</li>
-          <li>Institutional purchase orders accepted</li>
-        </ul>
-        <p className="mt-3">
-          Pre-order customers will receive detailed pricing and payment information 120 days prior to shipping. Early-bird pricing is available for the first 50 units.
-        </p>
-      </>
-    ),
-  },
-  {
-    title: 'Is MedRa compatible with our existing imaging equipment?',
-    content: (
-      <>
-        <p>
-          Yes! MedRa is designed as a universal solution compatible with all major C-arm fluoroscopy systems and cath lab configurations from manufacturers including Siemens, Philips, GE Healthcare, and Canon Medical.
+          MedRa is designed for use within a single procedural room. The mobile base can be manually repositioned between procedures within the same lab or moved to adjacent rooms as needed.
         </p>
         <p className="mt-3">
-          The system operates independently and does not require integration with your imaging equipment. Our pre-installation survey will confirm compatibility with your specific lab setup.
+          The autonomous navigation system operates within the designated lab space—positioning itself optimally relative to the C-arm and operator without requiring manual adjustments during procedures.
         </p>
-      </>
-    ),
-  },
-  {
-    title: 'What kind of maintenance does MedRa require?',
-    content: (
-      <>
-        <p>
-          MedRa is designed for minimal maintenance. Routine care includes:
-        </p>
-        <ul className="list-disc ml-6 mt-3 space-y-2">
-          <li>Daily cleaning with hospital-grade disinfectant wipes</li>
-          <li>Weekly visual inspection of shielding integrity</li>
-          <li>Quarterly preventive maintenance (can be performed by facility biomedical engineering or MedRa service)</li>
-        </ul>
         <p className="mt-3">
-          All units include a 2-year warranty covering parts and labor. Extended service contracts are available. Average uptime exceeds 99%.
+          For multi-room facilities, we recommend deploying one MedRa unit per high-volume procedural room to ensure consistent protection and availability.
         </p>
       </>
     ),

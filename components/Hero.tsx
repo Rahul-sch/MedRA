@@ -33,13 +33,13 @@ export default function Hero() {
 
             {/* Main Headline */}
             <h1 className="text-display-md lg:text-display-lg text-text-primary mb-6 leading-tight">
-              Meet MedRa: The Robotic Lead Shield for{' '}
-              <span className="text-accent-500">Interventional Labs</span>
+              The Future of Radiation Protection{' '}
+              <span className="text-accent-500">Has Arrived</span>
             </h1>
 
             {/* Sub-heading */}
             <p className="text-xl lg:text-2xl text-text-secondary mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-              Secure your early access. Protect your team with automated, full-body radiation protection designed for the modern cath lab.
+              MedRa replaces heavy lead vests with an intelligent robotic shield that protects your team—without the pain.
             </p>
 
             {/* Key Benefits - Quick Highlights */}
@@ -49,7 +49,7 @@ export default function Hero() {
                   <Shield className="w-5 h-5 text-success-dark" />
                 </div>
                 <span className="text-sm font-medium text-text-secondary">
-                  97% Exposure Reduction
+                  No Heavy Lead Vests
                 </span>
               </div>
               <div className="flex items-center gap-2">
@@ -57,7 +57,7 @@ export default function Hero() {
                   <Zap className="w-5 h-5 text-accent-600" />
                 </div>
                 <span className="text-sm font-medium text-text-secondary">
-                  Hands-Free Operation
+                  Autonomous Positioning
                 </span>
               </div>
               <div className="flex items-center gap-2">
@@ -65,7 +65,7 @@ export default function Hero() {
                   <Users className="w-5 h-5 text-warning-dark" />
                 </div>
                 <span className="text-sm font-medium text-text-secondary">
-                  Protect Your Entire Team
+                  Dual Robotic Arms
                 </span>
               </div>
             </div>
@@ -77,14 +77,14 @@ export default function Hero() {
                 onClick={scrollToPreorder}
                 className="group"
               >
-                Lock in Your Unit
+                Join the Pre-Order List
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button
                 size="xl"
                 variant="outline"
                 onClick={() => {
-                  const element = document.querySelector('#features')
+                  const element = document.querySelector('#problem')
                   element?.scrollIntoView({ behavior: 'smooth' })
                 }}
               >
@@ -92,10 +92,15 @@ export default function Hero() {
               </Button>
             </div>
 
+            {/* FDA Badge */}
+            <p className="text-sm text-text-tertiary mt-6">
+              Class I FDA Clearance in progress · Early access for 2026 deployments
+            </p>
+
             {/* Trust Badge */}
             <div className="mt-10 pt-8 border-t border-border">
               <p className="text-sm text-text-tertiary mb-3">
-                Trusted by leading imaging centers
+                Pilot partnership with Providence Hospital
               </p>
               <div className="flex items-center justify-center lg:justify-start gap-8 opacity-60">
                 {/* Placeholder for hospital/institution logos */}
@@ -123,13 +128,13 @@ export default function Hero() {
 
               {/* Floating Stats Cards */}
               <div className="absolute top-8 left-8 bg-white rounded-lg shadow-soft-lg p-4 animate-scale-in">
-                <div className="text-2xl font-bold text-accent-500">97%</div>
-                <div className="text-xs text-text-secondary">Scatter Reduction</div>
+                <div className="text-2xl font-bold text-accent-500">0 lbs</div>
+                <div className="text-xs text-text-secondary">Lead Vest Weight</div>
               </div>
 
               <div className="absolute bottom-8 right-8 bg-white rounded-lg shadow-soft-lg p-4 animate-scale-in" style={{ animationDelay: '0.2s' }}>
-                <div className="text-2xl font-bold text-success">5min</div>
-                <div className="text-xs text-text-secondary">Setup Time</div>
+                <div className="text-2xl font-bold text-success">100%</div>
+                <div className="text-xs text-text-secondary">Mobility Freedom</div>
               </div>
             </div>
           </div>
