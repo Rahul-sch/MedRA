@@ -6,7 +6,7 @@ import { Input } from './ui/input'
 import { Label } from './ui/label'
 import { Card, CardContent } from './ui/card'
 import { CheckCircle, Calendar, DollarSign, TrendingDown, Package, AlertCircle } from 'lucide-react'
-import { supabase } from '@/lib/supabase'
+import { getSupabaseClient } from '@/lib/supabase'
 
 const benefits = [
   {
@@ -71,6 +71,7 @@ export default function PreorderForm() {
 
     try {
       // Insert data into Supabase
+      const supabase = getSupabaseClient()
       const { data, error: supabaseError } = await supabase
         .from('preorders')
         .insert([
