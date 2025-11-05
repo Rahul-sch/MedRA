@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card'
-import { Shield, Zap, Users, Cpu, HeartPulse, Settings, CheckCircle, Clock } from 'lucide-react'
+import { Shield, Zap, Cpu, Settings, CheckCircle } from 'lucide-react'
 
 const features = [
   {
@@ -63,14 +63,17 @@ export default function Features() {
       { threshold: 0.1 }
     )
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current)
+    const currentSection = sectionRef.current
+    if (!currentSection) {
+      return () => {
+        observer.disconnect()
+      }
     }
 
+    observer.observe(currentSection)
+
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current)
-      }
+      observer.unobserve(currentSection)
     }
   }, [])
 
@@ -127,7 +130,7 @@ export default function Features() {
         {/* Bottom CTA */}
         <div className="mt-16 text-center">
           <p className="text-text-secondary mb-4">
-            Ready to transform your lab's radiation safety?
+            Ready to transform your lab&apos;s radiation safety?
           </p>
           <a
             href="#preorder"

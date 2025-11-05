@@ -50,14 +50,17 @@ export default function PreorderForm() {
       { threshold: 0.1 }
     )
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current)
+    const currentSection = sectionRef.current
+    if (!currentSection) {
+      return () => {
+        observer.disconnect()
+      }
     }
 
+    observer.observe(currentSection)
+
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current)
-      }
+      observer.unobserve(currentSection)
     }
   }, [])
 
@@ -93,9 +96,11 @@ export default function PreorderForm() {
         setIsSubmitted(false)
         setFormData({ name: '', email: '', institution: '', role: '' })
       }, 5000)
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('Error submitting pre-order:', err)
-      setError(err.message || 'Failed to submit. Please try again.')
+      const errorMessage =
+        err instanceof Error ? err.message : 'Failed to submit. Please try again.'
+      setError(errorMessage)
     } finally {
       setIsSubmitting(false)
     }
@@ -137,7 +142,7 @@ export default function PreorderForm() {
             {/* Left - Benefits */}
             <div className="lg:col-span-2 space-y-6">
               <h3 className="text-2xl font-bold text-text-primary mb-6">
-                What's Included
+                What&apos;s Included
               </h3>
               {benefits.map((benefit, index) => {
                 const Icon = benefit.icon
@@ -283,10 +288,10 @@ export default function PreorderForm() {
                         <CheckCircle className="w-10 h-10 text-success" />
                       </div>
                       <h3 className="text-2xl font-bold text-text-primary mb-4">
-                        You're on the List!
+                        You&apos;re on the List!
                       </h3>
                       <p className="text-text-secondary leading-relaxed max-w-md mx-auto">
-                        Thank you for your interest in MedRa. We'll reach out shortly with more details about your pre-order and early access benefits.
+                        Thank you for your interest in MedRa. We&apos;ll reach out shortly with more details about your pre-order and early access benefits.
                       </p>
                     </div>
                   )}

@@ -9,7 +9,7 @@ const steps = [
     number: '01',
     icon: MapPin,
     title: 'Position',
-    description: "MedRa's mobile base autonomously drives to the optimal location in your lab. No manual positioning required—it knows where to go.",
+    description: "MedRa&apos;s mobile base autonomously drives to the optimal location in your lab. No manual positioning required—it knows where to go.",
     color: 'text-accent-500',
     bgColor: 'bg-accent-100',
   },
@@ -45,14 +45,17 @@ export default function HowItWorks() {
       { threshold: 0.1 }
     )
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current)
+    const currentSection = sectionRef.current
+    if (!currentSection) {
+      return () => {
+        observer.disconnect()
+      }
     }
 
+    observer.observe(currentSection)
+
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current)
-      }
+      observer.unobserve(currentSection)
     }
   }, [])
 

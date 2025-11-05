@@ -26,7 +26,7 @@ const faqs = [
           Yes! MedRa works seamlessly with all major C-arm fluoroscopy systems and cath lab configurations from manufacturers including Siemens, Philips, GE Healthcare, and Canon Medical.
         </p>
         <p className="mt-3">
-          The system operates independently and doesn't require integration with your imaging equipment. It simply provides radiation shielding—your existing workflows, software, and imaging protocols remain unchanged.
+          The system operates independently and doesn&apos;t require integration with your imaging equipment. It simply provides radiation shielding—your existing workflows, software, and imaging protocols remain unchanged.
         </p>
       </>
     ),
@@ -52,7 +52,7 @@ const faqs = [
     content: (
       <>
         <p>
-          Clinical studies on robotic radiation protection systems show reduction in scatter radiation exposure of <strong>up to 97%</strong> to the operator's head, neck, and torso compared to traditional lead apron protection alone.
+          Clinical studies on robotic radiation protection systems show reduction in scatter radiation exposure of <strong>up to 97%</strong> to the operator&apos;s head, neck, and torso compared to traditional lead apron protection alone.
         </p>
         <p className="mt-3">
           MedRa uses medical-grade lead-glass composite shielding (0.5mm Pb equivalent) with intelligent real-time positioning to maintain optimal barrier protection throughout the procedure—without the weight of wearable lead.
@@ -92,14 +92,17 @@ export default function FAQ() {
       { threshold: 0.1 }
     )
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current)
+    const currentSection = sectionRef.current
+    if (!currentSection) {
+      return () => {
+        observer.disconnect()
+      }
     }
 
+    observer.observe(currentSection)
+
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current)
-      }
+      observer.unobserve(currentSection)
     }
   }, [])
 
@@ -117,7 +120,7 @@ export default function FAQ() {
             <span className="text-accent-500">Questions</span>
           </h2>
           <p className="text-lg lg:text-xl text-text-secondary leading-relaxed">
-            Everything you need to know about MedRa. Can't find the answer you're looking for? Reach out to our team.
+            Everything you need to know about MedRa. Can&apos;t find the answer you&apos;re looking for? Reach out to our team.
           </p>
         </div>
 

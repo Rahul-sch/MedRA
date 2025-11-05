@@ -18,14 +18,17 @@ export default function Problem() {
       { threshold: 0.1 }
     )
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current)
+    const currentSection = sectionRef.current
+    if (!currentSection) {
+      return () => {
+        observer.disconnect()
+      }
     }
 
+    observer.observe(currentSection)
+
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current)
-      }
+      observer.unobserve(currentSection)
     }
   }, [])
 
@@ -151,7 +154,7 @@ export default function Problem() {
                   Outdated Standard
                 </h3>
                 <p className="text-text-secondary leading-relaxed">
-                  Traditional shielding hasn't evolved with modern imaging technology. Mobile C-arms and complex procedures demand better protection solutions.
+                  Traditional shielding hasn&apos;t evolved with modern imaging technology. Mobile C-arms and complex procedures demand better protection solutions.
                 </p>
               </CardContent>
             </Card>
@@ -161,7 +164,7 @@ export default function Problem() {
         {/* Transition to Solution */}
         <div className="text-center mt-16">
           <p className="text-lg text-text-secondary max-w-2xl mx-auto">
-            It's time for a new standard—one that protects both from radiation <em>and</em> from physical injury.
+            It&apos;s time for a new standard—one that protects both from radiation <em>and</em> from physical injury.
           </p>
         </div>
       </div>

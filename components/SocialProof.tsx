@@ -12,7 +12,7 @@ const testimonials = [
     institution: "Metropolitan Medical Center",
   },
   {
-    quote: "As a cath lab manager, implementing MedRa was one of the best decisions we've made. Staff satisfaction is up, and we've documented measurable reductions in occupational radiation exposure.",
+    quote: "As a cath lab manager, implementing MedRa was one of the best decisions we&apos;ve made. Staff satisfaction is up, and we&apos;ve documented measurable reductions in occupational radiation exposure.",
     author: "Michael Rodriguez",
     role: "Cath Lab Manager",
     institution: "Cardiac Care Institute",
@@ -39,14 +39,17 @@ export default function SocialProof() {
       { threshold: 0.1 }
     )
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current)
+    const currentSection = sectionRef.current
+    if (!currentSection) {
+      return () => {
+        observer.disconnect()
+      }
     }
 
+    observer.observe(currentSection)
+
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current)
-      }
+      observer.unobserve(currentSection)
     }
   }, [])
 
@@ -111,7 +114,7 @@ export default function SocialProof() {
               <CardContent className="p-8">
                 <Quote className="w-10 h-10 text-accent-200 mb-4" />
                 <p className="text-text-secondary text-lg leading-relaxed mb-6 italic">
-                  "{testimonial.quote}"
+                  &ldquo;{testimonial.quote}&rdquo;
                 </p>
                 <div className="border-t border-border pt-6">
                   <div className="font-bold text-text-primary">
@@ -142,7 +145,7 @@ export default function SocialProof() {
                     Clinically Validated Technology
                   </h3>
                   <p className="text-text-secondary leading-relaxed mb-4">
-                    Robotic radiation protection systems have been shown to significantly reduce operator radiation exposure during interventional procedures. Studies demonstrate up to 97% reduction in scatter radiation dose to the operator's eyes, thyroid, and torso.
+                    Robotic radiation protection systems have been shown to significantly reduce operator radiation exposure during interventional procedures. Studies demonstrate up to 97% reduction in scatter radiation dose to the operator&apos;s eyes, thyroid, and torso.
                   </p>
                   <a
                     href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9912971/"

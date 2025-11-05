@@ -36,14 +36,17 @@ export default function ClinicalImpact() {
       { threshold: 0.1 }
     )
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current)
+    const currentSection = sectionRef.current
+    if (!currentSection) {
+      return () => {
+        observer.disconnect()
+      }
     }
 
+    observer.observe(currentSection)
+
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current)
-      }
+      observer.unobserve(currentSection)
     }
   }, [])
 
@@ -115,7 +118,7 @@ export default function ClinicalImpact() {
                     The Clinical Difference
                   </h3>
                   <p className="text-lg text-text-secondary leading-relaxed mb-4">
-                    MedRa isn't just about radiation safety—it's about career sustainability. Interventional radiologists, cardiologists, and electrophysiologists can perform at their best without sacrificing their bodies.
+                    MedRa isn&apos;t just about radiation safety—it&apos;s about career sustainability. Interventional radiologists, cardiologists, and electrophysiologists can perform at their best without sacrificing their bodies.
                   </p>
                   <p className="text-lg text-text-secondary leading-relaxed">
                     Every procedure protected by MedRa is a step toward a healthier, longer career in interventional medicine.
